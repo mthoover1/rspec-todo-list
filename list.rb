@@ -7,14 +7,17 @@ class List
   end
 
   def add_task(task)
-    tasks << task
+    return false if task == ""
+    tasks << task 
   end
 
   def complete_task(index)
-    tasks[index].complete!
+    return false unless tasks[index]
+    return true if tasks[index].complete!
   end
 
   def delete_task(index)
+    return false unless tasks[index]
     tasks.delete_at(index)
   end
 
